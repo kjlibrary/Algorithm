@@ -42,3 +42,25 @@ def cmp_(x, y):
     else:
         return 1
 ```
+
+## 3. H-Index (Level 2)
+
+- **문제 링크**: [https://school.programmers.co.kr/learn/courses/30/lessons/42747](https://school.programmers.co.kr/learn/courses/30/lessons/42747)
+
+```python
+def solution(citations):
+    n_citations = len(citations)
+    for n in range(n_citations, -1, -1):
+        if h_check(n, citations):
+            return n
+    return
+
+def h_check(n, cits):
+    count = 0
+    for item in cits:
+        if item >= n:
+            count += 1
+        if count >= n:
+            return True
+    return False
+```
